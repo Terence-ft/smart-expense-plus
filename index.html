@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Smart expense plus+ helps you manage everyday expenses and reach financial goals. Track income, spending, and savings targets in your browser."
+    />
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true">
+          <rect class="logo-plate" width="48" height="48" rx="14" />
+          <circle class="logo-coin" cx="24" cy="24" r="13" />
+          <path class="logo-plus" d="M24 16.5v15M16.5 24h15" />
+        </svg>
+        <span class="brand__name">Smart expense plus+</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="goals.html">Goals</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="lede">
+          Manage your expenses and reach your financial goals. Log income and spending, see which
+          categories cost the most, and set a savings target you can measure.
+        </p>
+        <div class="hero__actions">
+          <a class="button" href="tracker.html">Manage expenses</a>
+          <a class="button button--secondary" href="goals.html">Set a financial goal</a>
+        </div>
+      </section>
+
+      <section class="feature-grid" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="visually-hidden">What you can do</h2>
+        <a class="feature" href="tracker.html">
+          <h2>Manage expenses</h2>
+          <p>
+            Record each paycheck and each payment. The tracker keeps a running balance so you
+            know what is left after food, bills, transport, and everything else.
+          </p>
+        </a>
+        <a class="feature" href="tracker.html#spending">
+          <h2>See where money goes</h2>
+          <p>
+            Expenses are grouped by category. The share of spending in each one shows which
+            costs are large enough to slow a goal down.
+          </p>
+        </a>
+        <a class="feature" href="goals.html">
+          <h2>Reach a goal</h2>
+          <p>
+            Name what you are saving for, set the amount, and add money as you set it aside.
+            The goal stays next to your tracker balance so the target stays realistic.
+          </p>
+        </a>
+      </section>
+
+      <section aria-labelledby="snapshot-heading">
+        <div class="panel__head">
+          <h2 id="snapshot-heading">Your picture right now</h2>
+          <a href="about.html">Why this matters</a>
+        </div>
+        <div class="summary">
+          <article class="summary-card summary-card--income">
+            <p class="summary-card__label">Total income</p>
+            <p class="summary-card__value" id="home-income">$0.00</p>
+          </article>
+          <article class="summary-card summary-card--expense">
+            <p class="summary-card__label">Total expenses</p>
+            <p class="summary-card__value" id="home-expenses">$0.00</p>
+          </article>
+          <article class="summary-card summary-card--balance" id="home-balance-card">
+            <p class="summary-card__label">Remaining balance</p>
+            <p class="summary-card__value" id="home-balance">$0.00</p>
+          </article>
+        </div>
+        <p id="snapshot-note" class="snapshot-note"></p>
+        <div id="home-goals" class="goal-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Smart expense plus+ stores your ledger and goals in this browser only.</p>
+      <nav aria-label="Footer">
+        <a href="tracker.html">Tracker</a>
+        <a href="goals.html">Goals</a>
+        <a href="about.html">About</a>
+      </nav>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script src="home.js"></script>
+  </body>
+</html>

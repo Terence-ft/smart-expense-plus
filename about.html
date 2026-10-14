@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Smart expense plus+ is an application for managing expenses and reaching financial goals, with your records kept in the browser."
+    />
+    <title>About · Smart expense plus+</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true">
+          <rect class="logo-plate" width="48" height="48" rx="14" />
+          <circle class="logo-coin" cx="24" cy="24" r="13" />
+          <path class="logo-plus" d="M24 16.5v15M16.5 24h15" />
+        </svg>
+        <span class="brand__name">Smart expense plus+</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="goals.html">Goals</a>
+        <a href="about.html" aria-current="page">About</a>
+      </nav>
+    </header>
+
+    <main class="prose">
+      <header class="page-intro">
+        <p class="eyebrow">About the application</p>
+        <h1>A place to manage expenses and aim them at a goal.</h1>
+        <p class="lede">
+          Smart expense plus+ is a personal finance application for two jobs that belong together:
+          knowing what you spend, and knowing what you are saving for.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="expenses-heading">
+        <h2 id="expenses-heading">Managing expenses</h2>
+        <p>
+          Managing expenses means writing down what you receive and what you pay, then looking at
+          the total instead of a pile of receipts. Each transaction has a description, an amount,
+          a date, and a category such as food, transport, bills, or health.
+        </p>
+        <p>
+          Income increases the balance. An expense reduces it. The category chart shows the share
+          of spending in each group, which makes a large recurring cost visible. Filters and search
+          help you find one payment without changing the totals. Those totals are the honest
+          picture of what is left.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="goals-heading">
+        <h2 id="goals-heading">Reaching financial goals</h2>
+        <p>
+          A financial goal in this application is a named amount you want to set aside. It might
+          be an emergency fund, a course, a trip, or the next payment on something you owe. You
+          set the target, record what you have already saved, and add more as you put money aside.
+        </p>
+        <p>
+          The goal is useful only if it fits the money you actually have. Smart expense plus+
+          compares what your goals still need with the remaining balance from the expense tracker.
+          If spending rises, that balance shrinks and the path to the goal gets tighter. If you
+          spend less or record more income, you have more room to fund the goal.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="pages-heading">
+        <h2 id="pages-heading">How the site is organized</h2>
+        <ul class="page-list">
+          <li>
+            <a href="index.html">Home</a> introduces the application and shows your latest income,
+            expenses, balance, and goal progress.
+          </li>
+          <li>
+            <a href="tracker.html">Tracker</a> is where you add, search, and remove transactions.
+          </li>
+          <li>
+            <a href="goals.html">Goals</a> is where you set a target and update what you have saved.
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Where your records stay</h2>
+        <p>
+          The ledger and the goals stay in this browser on this device. Smart expense plus+ does
+          not send them to a server. Clearing site data for this folder removes them. Open the
+          same files in another browser and you will see an empty tracker until you enter them again.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Smart expense plus+ — manage expenses, then put what remains toward a goal.</p>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="goals.html">Goals</a>
+      </nav>
+    </footer>
+  </body>
+</html>

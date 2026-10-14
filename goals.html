@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Set financial goals in Smart expense plus+ and compare what you have saved with the balance left after your expenses."
+    />
+    <title>Financial goals · Smart expense plus+</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true">
+          <rect class="logo-plate" width="48" height="48" rx="14" />
+          <circle class="logo-coin" cx="24" cy="24" r="13" />
+          <path class="logo-plus" d="M24 16.5v15M16.5 24h15" />
+        </svg>
+        <span class="brand__name">Smart expense plus+</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="goals.html" aria-current="page">Goals</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <header class="page-intro">
+        <p class="eyebrow">Reach a target</p>
+        <h1>Financial goals</h1>
+        <p class="lede">
+          A goal here is a specific amount you intend to reach, such as an emergency fund, a
+          trip, or paying something off. Record what you have already saved. Smart expense plus+
+          compares that with the target and with the balance in your
+          <a href="tracker.html">expense tracker</a>, so you can tell whether today’s spending
+          still leaves a path to the goal.
+        </p>
+      </header>
+
+      <section class="panel comparison" id="goal-comparison"></section>
+      <p id="goals-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></p>
+
+      <div class="workspace">
+        <section class="panel" aria-labelledby="create-heading">
+          <h2 id="create-heading">New goal</h2>
+          <form id="goal-form" novalidate>
+            <div id="goal-error" class="form-error" role="alert" hidden></div>
+            <div class="field">
+              <label for="goal-name">Goal name</label>
+              <input id="goal-name" name="name" type="text" maxlength="60" autocomplete="off" required />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="goal-target">Target amount</label>
+                <input id="goal-target" name="target" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required />
+              </div>
+              <div class="field">
+                <label for="goal-saved">Already saved</label>
+                <input id="goal-saved" name="saved" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="goal-deadline">Target date <span class="optional">(optional)</span></label>
+              <input id="goal-deadline" name="deadline" type="date" />
+            </div>
+            <div class="field">
+              <label for="goal-note">Why this goal <span class="optional">(optional)</span></label>
+              <input id="goal-note" name="note" type="text" maxlength="140" autocomplete="off" />
+            </div>
+            <button type="submit" class="button">Save goal</button>
+          </form>
+        </section>
+
+        <section aria-labelledby="list-heading">
+          <h2 id="list-heading">Your goals</h2>
+          <p id="goals-empty" class="empty-state">
+            No goals yet. Add a name and a target amount. Then keep expenses in the tracker so
+            you know whether the balance can fund it.
+          </p>
+          <div id="goal-list" class="goal-grid" hidden></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>Goals stay in this browser, next to the expenses you record in the tracker.</p>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="about.html">About</a>
+      </nav>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script src="goals.js"></script>
+  </body>
+</html>

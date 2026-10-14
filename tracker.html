@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Record income and expenses in Smart expense plus+. See your balance and spending by category so you know what is left for your goals."
+    />
+    <title>Expense tracker · Smart expense plus+</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true">
+          <rect class="logo-plate" width="48" height="48" rx="14" />
+          <circle class="logo-coin" cx="24" cy="24" r="13" />
+          <path class="logo-plus" d="M24 16.5v15M16.5 24h15" />
+        </svg>
+        <span class="brand__name">Smart expense plus+</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="tracker.html" aria-current="page">Tracker</a>
+        <a href="goals.html">Goals</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <header class="page-intro">
+        <p class="eyebrow">Manage expenses</p>
+        <h1>Expense tracker</h1>
+        <p class="lede">
+          Use this page to manage expenses as they happen. Add income when money comes in and
+          an expense when it goes out. The cards show what you earned, what you spent, and what
+          remains for your financial goals. Search and filters change the list only, so they
+          never hide money you still have.
+        </p>
+      </header>
+
+      <section class="summary" aria-labelledby="summary-heading">
+        <h2 id="summary-heading" class="visually-hidden">Summary</h2>
+        <article class="summary-card summary-card--income">
+          <p class="summary-card__label">Total income</p>
+          <p class="summary-card__value" id="total-income">$0.00</p>
+        </article>
+        <article class="summary-card summary-card--expense">
+          <p class="summary-card__label">Total expenses</p>
+          <p class="summary-card__value" id="total-expenses">$0.00</p>
+        </article>
+        <article class="summary-card summary-card--balance" id="balance-card">
+          <p class="summary-card__label">Remaining balance</p>
+          <p class="summary-card__value" id="balance">$0.00</p>
+        </article>
+      </section>
+      <p class="page-intro__follow">
+        Put what remains toward a target on the <a href="goals.html">goals page</a>.
+      </p>
+      <p id="balance-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></p>
+
+      <div class="workspace">
+        <section class="panel" aria-labelledby="form-heading">
+          <h2 id="form-heading">Add a transaction</h2>
+          <form id="transaction-form" novalidate>
+            <div id="form-error" class="form-error" role="alert" hidden></div>
+
+            <div class="field">
+              <label for="description">Description</label>
+              <input id="description" name="description" type="text" maxlength="80" autocomplete="off" required />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="amount">Amount</label>
+                <input id="amount" name="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required />
+              </div>
+              <div class="field">
+                <label for="date">Date</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+            </div>
+
+            <fieldset class="type-field">
+              <legend>Type</legend>
+              <div class="type-toggle">
+                <label class="type-option">
+                  <input type="radio" name="type" value="expense" checked />
+                  <span>Expense</span>
+                </label>
+                <label class="type-option">
+                  <input type="radio" name="type" value="income" />
+                  <span>Income</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="">Choose a category</option>
+                <option>Salary</option>
+                <option>Freelance</option>
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Bills</option>
+                <option>Shopping</option>
+                <option>Entertainment</option>
+                <option>Health</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <button type="submit" class="button">Add transaction</button>
+          </form>
+        </section>
+
+        <section class="panel" id="spending" aria-labelledby="chart-heading">
+          <div class="panel__head">
+            <h2 id="chart-heading">Spending by category</h2>
+            <p class="panel__note">Share of total expenses</p>
+          </div>
+          <div id="category-chart" class="chart">
+            <p class="empty-copy">
+              Expenses you add will show up here, grouped by category. That split is how you see
+              which costs stand between you and a goal.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel panel--list" aria-labelledby="list-heading">
+        <div class="panel__head">
+          <h2 id="list-heading">Transactions</h2>
+          <p id="result-count" class="panel__note"></p>
+        </div>
+
+        <div class="filters">
+          <div class="filter-types" role="group" aria-label="Filter by type">
+            <button type="button" class="chip is-active" data-filter-type="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-filter-type="income" aria-pressed="false">Income</button>
+            <button type="button" class="chip" data-filter-type="expense" aria-pressed="false">Expenses</button>
+          </div>
+          <div class="field field--inline">
+            <label for="category-filter">Category</label>
+            <select id="category-filter">
+              <option value="all">All categories</option>
+            </select>
+          </div>
+          <div class="field field--inline field--search">
+            <label for="search">Search</label>
+            <input id="search" type="search" placeholder="Search descriptions" autocomplete="off" />
+          </div>
+        </div>
+
+        <p id="empty-state" class="empty-state">
+          No transactions yet. Add income or an expense to see your balance and where spending goes.
+        </p>
+        <p id="no-matches" class="empty-state" hidden>No transactions match these filters.</p>
+
+        <div class="table-wrap" id="table-wrap" hidden>
+          <table>
+            <caption class="visually-hidden">Transactions sorted by date, newest first</caption>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="transaction-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Saved on this device only. Clearing site data removes the ledger and your goals.</p>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="goals.html">Goals</a>
+        <a href="about.html">About</a>
+      </nav>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script src="tracker.js"></script>
+  </body>
+</html>
